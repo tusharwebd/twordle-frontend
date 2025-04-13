@@ -28,14 +28,15 @@ const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'https://web-production
 
 const socket = io(BACKEND_URL, {
   transports: ['websocket'],
+  upgrade: false,
   cors: {
-    origin: process.env.REACT_APP_FRONTEND_URL || "http://localhost:3000"
+    origin: "*"
   },
-  autoConnect: false,
+  forceNew: true,
   reconnection: true,
+  reconnectionAttempts: 5,
   reconnectionDelay: 1000,
-  reconnectionDelayMax: 5000,
-  reconnectionAttempts: 5
+  timeout: 20000
 });
 
 const theme = createTheme({
