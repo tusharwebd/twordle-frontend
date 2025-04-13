@@ -29,10 +29,6 @@ const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'https://web-production
 const socket = io(BACKEND_URL, {
   transports: ['websocket'],
   upgrade: false,
-  cors: {
-    origin: "*"
-  },
-  forceNew: true,
   reconnection: true,
   reconnectionAttempts: 5,
   reconnectionDelay: 1000,
